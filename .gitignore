@@ -1,0 +1,12 @@
+#folder config file
+Desktop.ini
+
+#WIndows installer files
+.bat
+.ini
+
+#OSX
+.DS_Store
+.AppleDouble
+
+#SASS cache
