@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Dice Game</h1>
+    </header>
+    <div class="diceBlock" id="player1">
+        <h2>Player</h2>
+        <img src="img\1.png" alt="" id="playerDice1" class="dice">
+        <img src="img\2.png" alt="" id="playerDice2" class="dice">
+        <h3 id="playerScore">Score: </h3>
+        
+    </div>
+    <div class="diceBlock" id="npc">
+        <h2>NPC</h2>
+        <img src="img\3.png" alt="" id="npcDice1" class="dice">
+        <img src="img\4.png" alt="" id="npcDice2" class="dice">
+        <h3 id="npcScore">Score: </h3>
+    </div>
+    <button id="round1">Play Round 1</button>
+    <script src=js\jquery-3.5.1.min.js></script>
+    <script src="js\game_mechanics.js"></script>
+</body>
+</html>
