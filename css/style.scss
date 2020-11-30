@@ -1,40 +1,56 @@
 $header_color: darkblue;
-$pic_size: 30%;
+$pic_size: 35%;
 
-@media (min-width:768px) {
-
+@mixin h1_styling($color, $font-family, $background-color, $margin-top) {
+    color: $color;
+    font-family: $font-family;
+    background-color: $background-color;
+    margin-top: $margin-top;
 }
 
-h1 {
-    background-color: $header_color;
-    margin-top: 0;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+body {
+    min-width:1024px;
 }
 
-h2 {
+#titleBar {
+    // background-color: $header_color;
+    // margin-top: 0;
+    // color: white;
+    // font-family: Verdana, Geneva, Tahoma, sans-serif;
+    @include h1_styling(white, Verdana, $header_color, 0);
+}
+
+#statusBar {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: auto;
 }
 
-h3 {
-    margin: auto;
+h1 {
+    color: black;
 }
 
 .diceblock {
     width: 400px;
-    height: 400px;
+    height: 600px;
     border: 1px solid black;
     margin-right: 10px;
     float: left;
 }
 
+#statusBar {
+    display:block;
+}
+
 .dice {
     width: $pic_size;
     height: $pic_size;
+    object-fit: scale-down;
     margin-left:auto;
     margin-right: auto;
-    margin-top: 50px;
     margin-bottom: auto;
     display: block;
 }
