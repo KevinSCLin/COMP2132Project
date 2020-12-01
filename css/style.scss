@@ -1,6 +1,11 @@
 $header_color: darkblue;
 $pic_size: 35%;
 
+body {
+    min-width:1024px;
+    background: url('..//img/background1.jpg') repeat;
+}
+
 @mixin h1_styling($color, $font-family, $background-color, $margin-top) {
     color: $color;
     font-family: $font-family;
@@ -8,8 +13,9 @@ $pic_size: 35%;
     margin-top: $margin-top;
 }
 
-body {
-    min-width:1024px;
+#NPCheader, #playerHeader {
+    background-color: bisque;
+    border-bottom:solid;
 }
 
 #titleBar {
@@ -33,12 +39,35 @@ h1 {
     color: black;
 }
 
-.diceblock {
+.roundScoreBlock {
+    border-top: solid;
+    border-bottom: solid;
+    margin-top: 5px;
+    background-color: rgb(240, 161, 14);
+}
+
+
+.totalScoreBlock {
+    position: relative;
+    top: -15px;
+    border-top: solid;
+    border-bottom: solid;
+    background-color: pink;
+}
+
+.diceBlock {
     width: 400px;
-    height: 600px;
+    height: 425px;
     border: 1px solid black;
     margin-right: 10px;
     float: left;
+    border: solid;
+    background: url("../img/background2.jpg") repeat;
+}
+
+.rollGroundHeader {
+    background: url("../img/background3.jpg") repeat;
+    padding: 5px;
 }
 
 #statusBar {
@@ -52,9 +81,23 @@ h1 {
     margin-left:auto;
     margin-right: auto;
     margin-bottom: auto;
-    display: block;
+    left: 9%;
+    padding: 10px;
+    position: relative;
 }
 
 #round1 {
     display: inline-block;
+}
+
+#startGame {
+    width: 150px;
+    height: 50px;
+    box-shadow: -3px 3px black, -2px 2px black, -1px 1px black;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 20;
+    font-weight: bold;
+    display: inline;
+    clear: both;
 }
