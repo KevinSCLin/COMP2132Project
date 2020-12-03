@@ -40,7 +40,7 @@ let currentRound = 1;
   * @param {Number} dice2 the value on dice2
   */
  function determineScore(dice1, dice2) {
-    if (dice1 === 1 && dice2 === 1) {
+    if (dice1 === 1 || dice2 === 1) {
         return 0;
     }
     else if (dice1 === dice2) {
