@@ -44,7 +44,7 @@ let currentRound = 1;
         return 0;
     }
     else if (dice1 === dice2) {
-        return dice1 * dice2;
+        return (dice1 + dice2) * 2;
     }
     else {
         return dice1 + dice2;
@@ -59,7 +59,6 @@ let currentRound = 1;
   */
  function swapDiceImage(imageID, diceValue) {
      document.getElementById(imageID).src = `img\\${diceValue}.png`;
-    //  console.log(`Called, dice value: ${diceValue}`);
  }
 
 
@@ -147,11 +146,14 @@ let currentRound = 1;
     document.getElementById("round2NPCScore").textContent = `Round 2 Score: `;
     document.getElementById("round3NPCScore").textContent = `Round 3 Score: `;
     document.getElementById("winLoseStatus").innerHTML = `<br>`;
-    // document.getElementById("startGame").addEventListener("click", playGame);
+    document.getElementById("playerDice1header").textContent = `Dice 1 Value: `;
+    document.getElementById("playerDice2header").textContent = `Dice 2 Value: `;
+    document.getElementById("NPCdice1header").textContent = `Dice 1 Value: `;
+    document.getElementById("NPCdice2header").textContent = `Dice 2 Value: `;
+
  }
 
  function showWinner() {
-    console.log("show winner");
     let statusOutputString = ``;
     if (humanPlayer.score > npcPlayer.score) {
     statusOutputString = `You win!`;
@@ -160,7 +162,6 @@ let currentRound = 1;
     } else {
         statusOutputString = `A draw! No winner.`;
     }
-    console.log(statusOutputString);
     document.getElementById("winLoseStatus").innerHTML = statusOutputString;
  }
 
@@ -170,10 +171,10 @@ let currentRound = 1;
  function playGame() {
     if(isResetGame) {
         resetGame();
-        console.log("reset game");
         isResetGame = false;
     }
 
+    document.getElementById("startGame").textContent = `Game In-Progress`;
 
     //disables Start Game button once the game begins
     document.getElementById("startGame").removeEventListener("click", playGame);
@@ -183,15 +184,13 @@ let currentRound = 1;
     Activates Start Game button for a new game
     */
     if (currentRound > 3) {
-        console.log("stop game");
         document.getElementById("startGame").addEventListener("click", playGame);
         showWinner();
+        document.getElementById("startGame").textContent = `Restart Game`;
         isResetGame = true;
         return;
     }
 
-
-    console.log(`current Round: ${currentRound}`);
     playerDice1ChangeTimes = getRandDiceRollNumber()
     playerDice2ChangeTimes = getRandDiceRollNumber()
     npcPlayerDice1ChangeTimes = getRandDiceRollNumber()
@@ -201,6 +200,7 @@ let currentRound = 1;
     npc1Dice1Roll(npcPlayerDice1ChangeTimes);
     npc1Dice2Roll(playerDice2ChangeTimes);
     let waitTime = Math.max(playerDice1ChangeTimes, playerDice2ChangeTimes, npcPlayerDice1ChangeTimes, npcPlayerDice2ChangeTimes) * 300 + 500;
+    document.getElementById("winLoseStatus").innerHTML = `Round ${currentRound}`;
     setTimeout(function(){
 
         //calculate scores
@@ -212,6 +212,12 @@ let currentRound = 1;
         document.getElementById("npcScore").textContent = `Total Score: ` + npcPlayer.score;
         const currentRoundPlayerScoreID = `round${currentRound}PlayerScore`;
         const currentRoundNPCScoreID = `round${currentRound}NPCScore`;
+
+        document.getElementById("playerDice1header").textContent = `Dice 1 Value: ${playerDice1Value}`;
+        document.getElementById("playerDice2header").textContent = `Dice 2 Value: ${playerDice2Value}`;
+        document.getElementById("NPCdice1header").textContent = `Dice 1 Value: ${npcDice1Value}`;
+        document.getElementById("NPCdice2header").textContent = `Dice 2 Value: ${npcDice2Value}`;
+
         document.getElementById(currentRoundPlayerScoreID).textContent += humanPlayerScore;
         document.getElementById(currentRoundNPCScoreID).textContent += npcPlayerScore;
         currentRound++;
@@ -219,8 +225,7 @@ let currentRound = 1;
         //recursive call - next round
         setTimeout(function() {
             playGame();
-            console.log("next round");
-        }, 1000);
+        }, 1500);
     }, waitTime)
  }
 

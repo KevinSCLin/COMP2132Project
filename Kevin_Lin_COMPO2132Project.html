@@ -13,25 +13,29 @@
         <h1 id="winLoseStatus"><br></h1>
     </div>
     <div class="diceBlock" id="player1">
-        <h2>Player</h2>
+        <h2 id="playerHeader" class="rollGroundHeader">Player</h2>
         <img src="img\1.png" alt="" id="playerDice1" class="dice">
         <img src="img\2.png" alt="" id="playerDice2" class="dice">
-        <h3 id="round1PlayerScore">Round 1 Score: </h3>
-        <h3 id="round2PlayerScore">Round 2 Score: </h3>
-        <h3 id="round3PlayerScore">Round 3 Score: </h3>
+        <h3 id="playerDice1header" class="roundScoreBlock">Dice 1 Value: </h3>
+        <h3 id="playerDice2header" class="roundScoreBlock">Dice 2 Value: </h3>
+        <h3 id="round1PlayerScore" class="roundScoreBlock">Round 1 Score: </h3>
+        <h3 id="round2PlayerScore" class="roundScoreBlock">Round 2 Score: </h3>
+        <h3 id="round3PlayerScore" class="roundScoreBlock">Round 3 Score: </h3>
         <br>
-        <h3 id="playerScore">Total Score: </h3>
+        <h3 id="playerScore" class="totalScoreBlock">Total Score: </h3>
         
     </div>
     <div class="diceBlock" id="npc">
-        <h2>NPC</h2>
+        <h2 id="NPCHeader" class="rollGroundHeader">Computer</h2>
         <img src="img\3.png" alt="" id="npcDice1" class="dice">
         <img src="img\4.png" alt="" id="npcDice2" class="dice">
-        <h3 id="round1NPCScore">Round 1 Score: </h3>
-        <h3 id="round2NPCScore">Round 2 Score: </h3>
-        <h3 id="round3NPCScore">Round 3 Score: </h3>
+        <h3 id="NPCdice1header" class="roundScoreBlock">Dice 1 Value: </h3>
+        <h3 id="NPCdice2header" class="roundScoreBlock">Dice 2 Value: </h3>
+        <h3 id="round1NPCScore" class="roundScoreBlock">Round 1 Score: </h3>
+        <h3 id="round2NPCScore" class="roundScoreBlock">Round 2 Score: </h3>
+        <h3 id="round3NPCScore" class="roundScoreBlock">Round 3 Score: </h3>
         <br>
-        <h3 id="npcScore">Total Score: </h3>
+        <h3 id="npcScore" class="totalScoreBlock">Total Score: </h3>
     </div>
 
     <div id="reporting">
@@ -39,6 +43,7 @@
         <h2 id="winnerLoser"></h2>
     </div>
     <button id="startGame">Start Game</button>
+    
     <script src=js\jquery-3.5.1.min.js></script>
     <script src="js\game_mechanics.js"></script>
 </body>
